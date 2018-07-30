@@ -49,7 +49,7 @@ class ProductSection extends React.Component {
             <GridItem xs={12} sm={12} md={4}>
               <InfoArea
                 title="Fingerprint"
-                description="28 years experience leaving our fingerprint on the web. If you've used a router or had a drink in belgium, you've used our software"
+                description="28 years coding experience, 18 professional years of leaving our fingerprint on the web. If you've used a router or had a drink in belgium, you've used our software"
                 icon={Fingerprint}
                 iconColor="danger"
                 vertical

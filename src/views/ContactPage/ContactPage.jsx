@@ -2,26 +2,22 @@ import React from "react";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 
-import WorkSection from "./Sections/WorkSection.jsx";
+import ContactSection from "./Sections/ContactSection";
 import SnackbarContent from "@material-ui/core/SnackbarContent";
-import notificationsStyles from "assets/jss/material-kit-react/views/componentsSections/notificationsStyles.jsx";
+import notificationsStyles from "assets/jss/material-kit-react/views/componentsSections/notificationsStyles";
 // core components
-import Header from "components/Header/Header.jsx";
-import HeaderLinks from "components/Header/HeaderLinks.jsx";
-import Footer from "components/Footer/Footer.jsx";
-import GridContainer from "components/Grid/GridContainer.jsx";
-import GridItem from "components/Grid/GridItem.jsx";
-import Button from "components/CustomButtons/Button.jsx";
-import Card from "components/Card/Card.jsx";
-import CardBody from "components/Card/CardBody.jsx";
-import CardHeader from "components/Card/CardHeader.jsx";
-import CardFooter from "components/Card/CardFooter.jsx";
-import CustomInput from "components/CustomInput/CustomInput.jsx";
+import Header from "components/Header/Header";
+import HeaderLinks from "components/Header/HeaderLinks";
+import Footer from "components/Footer/Footer";
 
-import loginPageStyle from "assets/jss/material-kit-react/views/loginPage.jsx";
+import Card from "components/Card/Card";
+
+
+import loginPageStyle from "assets/jss/material-kit-react/views/loginPage";
 
 import image from "assets/img/bg7.jpg";
 import Check from "@material-ui/icons/Check";
+import {injector} from 'react-services-injector';
 
 class ContactPage extends React.Component {
     constructor(props) {
@@ -43,21 +39,22 @@ class ContactPage extends React.Component {
     }
 
     render() {
+        const {RegisterService} = this.services;
 
-        const {classes, location, ...rest} = this.props;
-        let Notification = "";
-        if(location.search ==="?thank=1")
-        {
-Notification =      <SnackbarContent
-    message={
-        <span>
-              <b>SUCCESS :</b> We'll be in contact shortly
-            </span>
-    }
-    close
-    color="success"
-    icon={Check}
-/>
+        const {classes,  ...rest} = this.props;
+
+        let Content = <ContactSection/>
+        if (RegisterService.Submitted) {
+            Content = <SnackbarContent
+                message={
+                    <span>
+                      <b>SUCCESS :</b> We'll be in contact shortly
+                    </span>
+                }
+                close
+                color="success"
+                icon={Check}
+            />
         }
         return (
             <div>
@@ -83,8 +80,7 @@ Notification =      <SnackbarContent
                     <div className={classes.container}>
 
                         <Card className={classes[this.state.cardAnimaton]}>
-                            {Notification}
-                                <WorkSection/>
+                            {Content}
                         </Card>
                     </div>
                     <Footer whiteFont/>
@@ -93,5 +89,8 @@ Notification =      <SnackbarContent
         );
     }
 }
+let StyledPage = withStyles(loginPageStyle)(ContactPage);
+export default injector.connect(StyledPage, {
+    toRender: ['RegisterService'] //we only need Storage in the component
+});
 
-export default withStyles(loginPageStyle)(ContactPage);

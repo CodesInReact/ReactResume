@@ -2,6 +2,7 @@ import React from "react";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 
+import {injector} from 'react-services-injector';
 // @material-ui/icons
 
 // core components
@@ -12,8 +13,27 @@ import Button from "components/CustomButtons/Button.jsx";
 
 import workStyle from "assets/jss/material-kit-react/views/landingPageSections/workStyle.jsx";
 
-class WorkSection extends React.Component {
+class ContactSection extends React.Component {
+  constructor(props){
+    super(props);
+    this.state ={
+        Name:'',
+        Email:'',
+        Project:''
+    }
+  }
+  Submit(){
+      const {RegisterService} = this.services;
+      RegisterService.Submit({
+          Name:this.state.Name,
+          Email:this.state.Email,
+          Project:this.state.Project
+      })
+
+  }
+
   render() {
+
     const { classes } = this.props;
     return (
       <div className={classes.section}>
@@ -36,6 +56,10 @@ class WorkSection extends React.Component {
                     formControlProps={{
                       fullWidth: true
                     }}
+                    value={this.state.Name}
+                    OnChange={(Name)=>{
+                        this.setState({Name:Name})
+                    }}
                   />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={6}>
@@ -45,6 +69,10 @@ class WorkSection extends React.Component {
                     id="email"
                     formControlProps={{
                       fullWidth: true
+                    }}
+                    value={this.state.Email}
+                    OnChange={(Email)=>{
+                        this.setState({Email:Email})
                     }}
                   />
                 </GridItem>
@@ -60,6 +88,11 @@ class WorkSection extends React.Component {
                     multiline: true,
                     rows: 5
                   }}
+                  value={this.state.Project}
+                  OnChange={(Project)=>{
+                    alert("hi");
+                    this.setState({Project:Project})
+                  }}
                 />
                 <GridContainer >
                   <GridItem
@@ -69,7 +102,9 @@ class WorkSection extends React.Component {
                     className={classes.textCenter}
                     style={{justify:"center"}}
                   >
-                    <Button type="submit" color="primary">Send Message</Button>
+                    <Button OnClick={()=>{
+                      this.Submit();
+                    }} color="primary">Send Message</Button>
                   </GridItem>
                 </GridContainer>
               </GridContainer>
@@ -80,5 +115,8 @@ class WorkSection extends React.Component {
     );
   }
 }
+let StyledSection = withStyles(workStyle)(ContactSection);
+export default injector.connect(StyledSection, {
+    toRender: ['RegisterService'] //we only need Storage in the component
+});
 
-export default withStyles(workStyle)(WorkSection);

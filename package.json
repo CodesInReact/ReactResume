@@ -20,7 +20,7 @@
     "react-slick": "0.23.1",
     "react-swipeable-views": "0.12.13",
     "react-services-injector": "^1.0.0-rc.4",
-    "axios": "^0.18.0"
+    "@sanity/client": "^0.132.5"
   },
   "scripts": {
     "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
@@ -28,7 +28,7 @@
     "start-js": "react-scripts start",
     "start": "npm-run-all -p watch-css start-js",
     "build": "npm run build-css && react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "cross-env PORT=3333 react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
 }

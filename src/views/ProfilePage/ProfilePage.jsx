@@ -52,7 +52,6 @@ function Transition(props) {
     return <Slide direction="up" {...props} />;
 }
 
-const emails = ['username@gmail.com', 'user02@gmail.com'];
 const Wrappedstyles = {
     avatar: {
         backgroundColor: blue[100],

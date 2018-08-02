@@ -22,7 +22,7 @@ class RegisterService extends Service
                 this.HasSubmit = true;
             })
             .catch(function (error) {
-
+                debugger;
                 console.log(error);
                 this.HasSubmit = false;
             })

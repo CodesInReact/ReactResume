@@ -16,8 +16,8 @@ import Card from "components/Card/Card";
 import loginPageStyle from "assets/jss/material-kit-react/views/loginPage";
 
 import image from "assets/img/bg7.jpg";
-import Check from "@material-ui/icons/Check";
-import {injector} from 'react-services-injector';
+import EmailFormWithThankYou from "./Pieces/EmailFormWithThankYou";
+
 
 class ContactPage extends React.Component {
     constructor(props) {
@@ -39,23 +39,10 @@ class ContactPage extends React.Component {
     }
 
     render() {
-        const {RegisterService} = this.services;
 
         const {classes,  ...rest} = this.props;
 
-        let Content = <ContactSection/>
-        if (RegisterService.Submitted) {
-            Content = <SnackbarContent
-                message={
-                    <span>
-                      <b>SUCCESS :</b> We'll be in contact shortly
-                    </span>
-                }
-                close
-                color="success"
-                icon={Check}
-            />
-        }
+
         return (
             <div>
                 <Header
@@ -80,7 +67,7 @@ class ContactPage extends React.Component {
                     <div className={classes.container}>
 
                         <Card className={classes[this.state.cardAnimaton]}>
-                            {Content}
+                            <EmailFormWithThankYou />
                         </Card>
                     </div>
                     <Footer whiteFont/>
@@ -90,7 +77,5 @@ class ContactPage extends React.Component {
     }
 }
 let StyledPage = withStyles(loginPageStyle)(ContactPage);
-export default injector.connect(StyledPage, {
-    toRender: ['RegisterService'] //we only need Storage in the component
-});
 
+export default StyledPage;

@@ -35,6 +35,7 @@ class ContactSection extends React.Component {
   render() {
 
     const { classes } = this.props;
+
     return (
       <div className={classes.section}>
         <GridContainer justify="center">
@@ -102,7 +103,7 @@ class ContactSection extends React.Component {
                     className={classes.textCenter}
                     style={{justify:"center"}}
                   >
-                    <Button OnClick={()=>{
+                    <Button onClick={()=>{
                       this.Submit();
                     }} color="primary">Send Message</Button>
                   </GridItem>
@@ -115,8 +116,5 @@ class ContactSection extends React.Component {
     );
   }
 }
-let StyledSection = withStyles(workStyle)(ContactSection);
-export default injector.connect(StyledSection, {
-    toRender: ['RegisterService'] //we only need Storage in the component
-});
+export default withStyles(workStyle)(ContactSection);
 

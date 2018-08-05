@@ -8,7 +8,7 @@ import ListItem from "@material-ui/core/ListItem";
 import Search from "@material-ui/icons/Search";
 import Email from "@material-ui/icons/Email";
 import Face from "@material-ui/icons/Face";
-import Settings from "@material-ui/icons/Settings";
+import Settings from "@material-ui/icons/SettingsInputAntenna";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import Explore from "@material-ui/icons/Explore";
 // core components

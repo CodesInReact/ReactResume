@@ -4,7 +4,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import InputAdornment from "@material-ui/core/InputAdornment";
 // @material-ui/icons
 import Email from "@material-ui/icons/Email";
-import LockOutline from "@material-ui/icons/LockOutline";
+import LockOutline from "@material-ui/icons/LockOutlined";
 import People from "@material-ui/icons/People";
 // core components
 import Header from "components/Header/Header.jsx";
@@ -27,118 +27,116 @@ import SnackbarContent from "@material-ui/core/SnackbarContent";
 import notificationsStyles from "assets/jss/material-kit-react/views/componentsSections/notificationsStyles.jsx";
 import Check from "@material-ui/icons/Check";
 class LoginPage extends React.Component {
-  constructor(props) {
-    super(props);
-    // we use this to make the card to appear after the page has been rendered
-    this.state = {
-      cardAnimaton: "cardHidden"
-    };
-  }
-  componentDidMount() {
-    // we add a hidden class to the card and after 700 ms we delete it and the transition appears
-    setTimeout(
-      function() {
-        this.setState({ cardAnimaton: "" });
-      }.bind(this),
-      700
-    );
-  }
+    constructor(props) {
+        super(props);
+        // we use this to make the card to appear after the page has been rendered
+        this.state = {
+            cardAnimaton: "cardHidden"
+        };
+    }
+    componentDidMount() {
+        // we add a hidden class to the card and after 700 ms we delete it and the transition appears
+        setTimeout(
+            function () {
+                this.setState({ cardAnimaton: "" });
+            }.bind(this),
+            700
+        );
+    }
 
-  render() {
-    const { classes,location, ...rest } = this.props;
-      if(location.search ==="?resolve=1")
-      {
-          Notification =      <SnackbarContent
-              message={
-                  <span>
-              <b>Error :</b> That's not a valid login.
+    render() {
+        const { classes, location, ...rest } = this.props;
+        if (location.search === "?resolve=1") {
+            Notification = <SnackbarContent
+                message={
+                    <span>
+                        <b>Error :</b> That's not a valid login.
             </span>
-              }
-              close
-              color="error"
-              icon={Check}
-          />
-      }
-    return (
-      <div>
-        <Header
-          absolute
-          color="transparent"
-          brand="Material Kit React"
-          rightLinks={<HeaderLinks />}
-          {...rest}
-        />
-        <div
-          className={classes.pageHeader}
-          style={{
-            backgroundImage: "url(" + image + ")",
-            backgroundSize: "cover",
-            backgroundPosition: "top center"
-          }}
-        >
-          <div className={classes.container}>
-            <GridContainer justify="center">
-              <GridItem xs={12} sm={12} md={4}>
-                <Card className={classes[this.state.cardAnimaton]}>
-                    <form method={"post"} action={"login.php"} className={classes.form}>
-                    <CardHeader color="primary" className={classes.cardHeader}>
-                      <h4>Login</h4>
-                        {Notification}
-                    </CardHeader>
+                }
+                close
+                color="error"
+                icon={Check}
+            />
+        }
+        return (
+            <div>
+                <Header
+                    absolute
+                    color="transparent"
+                    brand="Material Kit React"
+                    rightLinks={<HeaderLinks />}
+                    {...rest}
+                />
+                <div
+                    className={classes.pageHeader}
+                    style={{
+                        backgroundImage: "url(" + image + ")",
+                        backgroundSize: "cover",
+                        backgroundPosition: "top center"
+                    }}
+                >
+                    <div className={classes.container}>
+                        <GridContainer justify="center">
+                            <GridItem xs={12} sm={12} md={4}>
+                                <Card className={classes[this.state.cardAnimaton]}>
+                                    <form method={"post"} action={"login.php"} className={classes.form}>
+                                        <CardHeader color="primary" className={classes.cardHeader}>
+                                            <h4>Login</h4>
+                                            {Notification}
+                                        </CardHeader>
 
-                    <CardBody>
+                                        <CardBody>
 
-
-                      <CustomInput
-                        labelText="Email..."
-                        id="email"
-                        name={"Email"}
-                        formControlProps={{
-                          fullWidth: true
-                        }}
-                        inputProps={{
-                          type: "email",
-                          endAdornment: (
-                            <InputAdornment position="end">
-                              <Email className={classes.inputIconsColor} />
-                            </InputAdornment>
-                          )
-                        }}
-                      />
-                      <CustomInput
-                        labelText="Password"
-                        id="pass"
-                        name={"Password"}
-                        formControlProps={{
-                          fullWidth: true
-                        }}
-                        inputProps={{
-                          type: "password",
-                          endAdornment: (
-                            <InputAdornment position="end">
-                              <LockOutline
-                                className={classes.inputIconsColor}
-                              />
-                            </InputAdornment>
-                          )
-                        }}
-                      />
-                    </CardBody>
-                    <CardFooter className={classes.cardFooter}>
-                      <Button type={"submit"} simple color="primary" size="lg">
-                        Get started
+                                            <CustomInput
+                                                labelText="Email..."
+                                                id="email"
+                                                name={"Email"}
+                                                formControlProps={{
+                                                    fullWidth: true
+                                                }}
+                                                inputProps={{
+                                                    type: "email",
+                                                    endAdornment: (
+                                                        <InputAdornment position="end">
+                                                            <Email className={classes.inputIconsColor} />
+                                                        </InputAdornment>
+                                                    )
+                                                }}
+                                            />
+                                            <CustomInput
+                                                labelText="Password"
+                                                id="pass"
+                                                name={"Password"}
+                                                formControlProps={{
+                                                    fullWidth: true
+                                                }}
+                                                inputProps={{
+                                                    type: "password",
+                                                    endAdornment: (
+                                                        <InputAdornment position="end">
+                                                            <LockOutline
+                                                                className={classes.inputIconsColor}
+                                                            />
+                                                        </InputAdornment>
+                                                    )
+                                                }}
+                                            />
+                                        </CardBody>
+                                        <CardFooter className={classes.cardFooter}>
+                                            <Button type={"submit"} simple color="primary" size="lg">
+                                                Get started
                       </Button>
-                    </CardFooter>
-                  </form>
-                </Card>
-              </GridItem>
-            </GridContainer>
-          </div>
-          <Footer whiteFont />
-        </div>
-      </div>
-    );
-  }
+                                        </CardFooter>
+                                    </form>
+                                </Card>
+                            </GridItem>
+                        </GridContainer>
+                    </div>
+                    <Footer whiteFont />
+                </div>
+            </div>
+        );
+    }
 }
 
 export default withStyles(loginPageStyle)(LoginPage);

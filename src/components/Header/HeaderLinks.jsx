@@ -10,7 +10,7 @@ import ListItem from "@material-ui/core/ListItem";
 import Tooltip from "@material-ui/core/Tooltip";
 
 // @material-ui/icons
-import {Apps, CloudDownload, VerifiedUser} from "@material-ui/icons";
+import {  VerifiedUser,BugReport} from "@material-ui/icons";
 
 // core components
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.jsx";
@@ -35,11 +35,11 @@ function HeaderLinks({...props}) {
             </ListItem>
             <ListItem className={classes.listItem}>
                 <Button
-                    href="/contact-us"
+                    href="https://join.slack.com/t/reactcoders/shared_invite/enQtNDA2ODI4Njc4NDM0LTczZWNmNWFmNTEyZGEzMmMzN2U0OGIzOWIyMjJmNThlNzUyZTdiOGY3NWY4M2YyZDg0MDU3MzU0ZTNlNGEzNmQ"
                     color="transparent"
 
                     className={classes.navLink}
-                ><CloudDownload className={classes.icons}/> Start </Button>
+                ><BugReport className={classes.icons}/> Start A Project</Button>
 
             </ListItem>
 
@@ -60,23 +60,7 @@ function HeaderLinks({...props}) {
                     </Button>
                 </Tooltip>
             </ListItem>
-            <ListItem className={classes.listItem}>
-                <Tooltip
-                    id="instagram-tooltip"
-                    title="Come Chat in slack"
-                    placement={window.innerWidth > 959 ? "top" : "left"}
-                    classes={{tooltip: classes.tooltip}}
-                >
-                    <Button
-                        color="transparent"
-                        href="https://join.slack.com/t/reactcoders/shared_invite/enQtNDA2ODI4Njc4NDM0LTczZWNmNWFmNTEyZGEzMmMzN2U0OGIzOWIyMjJmNThlNzUyZTdiOGY3NWY4M2YyZDg0MDU3MzU0ZTNlNGEzNmQ"
-                        target="_blank"
-                        className={classes.navLink}
-                    >
-                        <i className={classes.socialIcons + " fab fa-slack"}/>
-                    </Button>
-                </Tooltip>
-            </ListItem>
+
         </List>
     );
 }

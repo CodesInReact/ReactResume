@@ -1,15 +1,10 @@
 import React from "react";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
-
-import {injector} from 'react-services-injector';
-// @material-ui/icons
-
-// core components
+import ContactSubmitButton from "../Pieces/ContactSubmitButton"
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
 import CustomInput from "components/CustomInput/CustomInput.jsx";
-import Button from "components/CustomButtons/Button.jsx";
 
 import workStyle from "assets/jss/material-kit-react/views/landingPageSections/workStyle.jsx";
 
@@ -22,15 +17,7 @@ class ContactSection extends React.Component {
         Project:''
     }
   }
-  Submit(){
-      const {RegisterService} = this.services;
-      RegisterService.Submit({
-          Name:this.state.Name,
-          Email:this.state.Email,
-          Project:this.state.Project
-      })
 
-  }
 
   render() {
 
@@ -58,8 +45,9 @@ class ContactSection extends React.Component {
                       fullWidth: true
                     }}
                     value={this.state.Name}
-                    OnChange={(Name)=>{
-                        this.setState({Name:Name})
+                    onChange={(evt)=>{
+                        alert("hi");
+                        this.setState({Name:evt.target.value})
                     }}
                   />
                 </GridItem>
@@ -73,7 +61,8 @@ class ContactSection extends React.Component {
                     }}
                     value={this.state.Email}
                     OnChange={(Email)=>{
-                        this.setState({Email:Email})
+                        debugger;
+                         this.setState({Email:Email})
                     }}
                   />
                 </GridItem>
@@ -90,7 +79,7 @@ class ContactSection extends React.Component {
                     rows: 5
                   }}
                   value={this.state.Project}
-                  OnChange={(Project)=>{
+                  onChange={(Project)=>{
                     alert("hi");
                     this.setState({Project:Project})
                   }}
@@ -103,9 +92,11 @@ class ContactSection extends React.Component {
                     className={classes.textCenter}
                     style={{justify:"center"}}
                   >
-                    <Button onClick={()=>{
-                      this.Submit();
-                    }} color="primary">Send Message</Button>
+                    <ContactSubmitButton FormState={{
+                        Name: this.state.Name,
+                        Email: this.state.Email,
+                        Project: this.state.Project
+                    }} />
                   </GridItem>
                 </GridContainer>
               </GridContainer>

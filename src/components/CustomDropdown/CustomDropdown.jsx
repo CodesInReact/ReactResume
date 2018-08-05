@@ -3,7 +3,7 @@ import React from "react";
 import classNames from "classnames";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
-import { Manager, Target, Popper } from "react-popper";
+import { Manager, Reference, Popper } from "react-popper";
 
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
@@ -63,7 +63,7 @@ class CustomDropdown extends React.Component {
     });
     return (
       <Manager>
-        <Target>
+        <Reference>
           <Button
             aria-label="Notifications"
             aria-owns={open ? "menu-list" : null}
@@ -77,7 +77,7 @@ class CustomDropdown extends React.Component {
             {buttonText !== undefined ? buttonText : null}
             {caret ? <b className={caretClasses} /> : null}
           </Button>
-        </Target>
+        </Reference>
         <Popper
           placement={
             dropup

@@ -20,60 +20,61 @@ import landingPageStyle from "assets/jss/material-kit-react/views/landingPage.js
 // Sections for this page
 import ProductSection from "./Sections/ProductSection.jsx";
 import HistorySection from './Sections/HistorySection'
+import AboutUsSection from './Sections/AboutUsSection';
 const dashboardRoutes = [];
 
 class LandingPage extends React.Component {
-  render() {
-    const { classes, ...rest } = this.props;
-    return (
-      <div>
-        <Header
-          color="transparent"
-          routes={dashboardRoutes}
-          brand="React Coders"
-          rightLinks={<HeaderLinks />}
-          fixed
-          changeColorOnScroll={{
-            height: 400,
-            color: "white"
-          }}
-          {...rest}
-        />
-        <Parallax filter image={require("assets/img/matrix.gif")}>
-          <div className={classes.container}>
-            <GridContainer>
-              <GridItem xs={12} sm={12} md={6}>
-                <h1 className={classes.title}>Your Project Starts With Us.</h1>
-                <h4>
-                  Every project needs a talented crew after to take
-                  on it's goals, that's why we develop as freelancers.
-                  The technology used in your page can make or break your customer's
-                  first impression. We use React.
-                </h4>
-                <br />
-                <Button
-                  color="danger"
-                  size="lg"
-                  href="/contact-us"
+    render() {
+        const {classes, ...rest} = this.props;
+        return (
+            <div>
+                <Header
+                    color="transparent"
+                    routes={dashboardRoutes}
+                    brand="React Coders"
+                    rightLinks={<HeaderLinks/>}
+                    fixed
+                    changeColorOnScroll={{
+                        height: 400,
+                        color: "white"
+                    }}
+                    {...rest}
+                />
+                <Parallax filter image={require("assets/img/matrix.gif")}>
+                    <div className={classes.container}>
+                                             <GridContainer>
+                            <GridItem xs={12} sm={12} md={6}>
+                                <h1 className={classes.title}>Your Project Starts With Us.</h1>
+                                <h4>
+                                    First impressions count. A page’s construction and layout can make or break a
+                                    customer’s first impression and potential sales. Let us design or redesign your site
+                                    using cutting-edge technology to ensure a professional finish and incredible user
+                                    experience.
+                                </h4>
+                                <br/>
+                                <Button
+                                    color="danger"
+                                    size="lg"
+                                    href="https://join.slack.com/t/reactcoders/shared_invite/enQtNDA2ODI4Njc4NDM0LTczZWNmNWFmNTEyZGEzMmMzN2U0OGIzOWIyMjJmNThlNzUyZTdiOGY3NWY4M2YyZDg0MDU3MzU0ZTNlNGEzNmQ"
 
-                >
-                  <i className="fas fa-play" />Let's Get Started
-                </Button>
-              </GridItem>
-            </GridContainer>
-          </div>
-        </Parallax>
-        <div className={classNames(classes.main, classes.mainRaised)}>
-          <div className={classes.container}>
-
-              <HistorySection />
-              <ProductSection />
-          </div>
-        </div>
-        <Footer />
-      </div>
-    );
-  }
+                                >
+                                    <i className="fas fa-play"/>Let's Get Started
+                                </Button>
+                            </GridItem>
+                        </GridContainer>
+                    </div>
+                </Parallax>
+                <div className={classNames(classes.main, classes.mainRaised)}>
+                    <div className={classes.container}>
+                        <HistorySection/>
+                        <AboutUsSection/>
+                        <ProductSection/>
+                    </div>
+                </div>
+                <Footer/>
+            </div>
+        );
+    }
 }
 
 export default withStyles(landingPageStyle)(LandingPage);

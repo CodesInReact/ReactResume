@@ -2,7 +2,7 @@ import React from "react";
 import ContactSection from "../Sections/ContactSection";
 import SnackbarContent from "@material-ui/core/SnackbarContent";
 import Check from "@material-ui/icons/Check";
-import {injector} from "react-services-injector";
+
 
 class EmailFormWithThankYou extends React.Component {
     render() {
@@ -25,6 +25,4 @@ class EmailFormWithThankYou extends React.Component {
         return Content;
     }
 }
-export default injector.connect(EmailFormWithThankYou, {
-    toRender: ['RegisterService'] //we only need Storage in the component
-});
+export default EmailFormWithThankYou;

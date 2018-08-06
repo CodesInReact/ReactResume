@@ -1,19 +1,16 @@
 {
-  "main.css": "static/css/main.fbdd1229.css",
-  "main.css.map": "static/css/main.fbdd1229.css.map",
-  "main.js": "static/js/main.e8cc2bb1.js",
-  "main.js.map": "static/js/main.e8cc2bb1.js.map",
+  "main.css": "static/css/main.95a73a22.css",
+  "main.css.map": "static/css/main.95a73a22.css.map",
+  "main.js": "static/js/main.13e52340.js",
+  "main.js.map": "static/js/main.13e52340.js.map",
   "static\\media\\avatar.jpg": "static/media/avatar.f1d71f77.jpg",
   "static\\media\\bg.jpg": "static/media/bg.e5241971.jpg",
   "static\\media\\bg2.jpg": "static/media/bg2.84378183.jpg",
   "static\\media\\bg3.jpg": "static/media/bg3.e76de24b.jpg",
   "static\\media\\bg7.jpg": "static/media/bg7.b08234a2.jpg",
   "static\\media\\landing.jpg": "static/media/landing.08e18cb9.jpg",
-  "static\\media\\matrix.gif": "static/media/matrix.e295b5d0.gif",
-  "static\\media\\mighty.png": "static/media/mighty.ab2d9879.png",
+  "static\\media\\matrix.gif": "static/media/matrix.1131db5b.gif",
   "static\\media\\parallaxbg.jpg": "static/media/parallaxbg.11a2670a.jpg",
-  "static\\media\\ppa.png": "static/media/ppa.8de561bf.png",
   "static\\media\\profile.jpg": "static/media/profile.090a5aab.jpg",
-  "static\\media\\sign.jpg": "static/media/sign.cf8b686b.jpg",
-  "static\\media\\studio-5.jpg": "static/media/studio-5.332c9501.jpg"
+  "static\\media\\sign.jpg": "static/media/sign.cf8b686b.jpg"
 }

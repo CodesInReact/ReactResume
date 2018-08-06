@@ -17,10 +17,6 @@ import Parallax from "components/Parallax/Parallax.jsx";
 
 import landingPageStyle from "assets/jss/material-kit-react/views/landingPage.jsx";
 
-// Sections for this page
-import ProductSection from "./Sections/ProductSection.jsx";
-import HistorySection from './Sections/HistorySection'
-import AboutUsSection from './Sections/AboutUsSection';
 const dashboardRoutes = [];
 
 class LandingPage extends React.Component {
@@ -44,18 +40,15 @@ class LandingPage extends React.Component {
                     <div className={classes.container}>
                                              <GridContainer>
                             <GridItem xs={12} sm={12} md={6}>
-                                <h1 className={classes.title}>Your Project Starts With Us.</h1>
+                                <h1 className={classes.title}>Split, Merge, and Fix Pcf files.</h1>
                                 <h4>
-                                    First impressions count. A page’s construction and layout can make or break a
-                                    customer’s first impression and potential sales. Let us design or redesign your site
-                                    using cutting-edge technology to ensure a professional finish and incredible user
-                                    experience.
+                                    Quickly process all the annoying errors in your pcf file with this multifile tool.
                                 </h4>
                                 <br/>
                                 <Button
                                     color="danger"
                                     size="lg"
-                                    href="https://join.slack.com/t/reactcoders/shared_invite/enQtNDA2ODI4Njc4NDM0LTczZWNmNWFmNTEyZGEzMmMzN2U0OGIzOWIyMjJmNThlNzUyZTdiOGY3NWY4M2YyZDg0MDU3MzU0ZTNlNGEzNmQ"
+                                    href="/tutorial"
 
                                 >
                                     <i className="fas fa-play"/>Let's Get Started
@@ -66,9 +59,7 @@ class LandingPage extends React.Component {
                 </Parallax>
                 <div className={classNames(classes.main, classes.mainRaised)}>
                     <div className={classes.container}>
-                        <HistorySection/>
-                        <AboutUsSection/>
-                        <ProductSection/>
+
                     </div>
                 </div>
                 <Footer/>

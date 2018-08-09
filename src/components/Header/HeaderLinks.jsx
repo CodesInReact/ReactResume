@@ -1,21 +1,19 @@
 /*eslint-disable*/
 import React from "react";
-// react components for routing our app without refresh
-import {Link} from "react-router-dom";
+
+import {CodeSplitComponent} from "../../BooBoo/BooBoo"
 
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import Tooltip from "@material-ui/core/Tooltip";
-
+ let List = CodeSplitComponent(import("@material-ui/core/List"))
+let ListItem = CodeSplitComponent(import("@material-ui/core/ListItem"))
+let Tooltip = CodeSplitComponent(import("@material-ui/core/Tooltip"))
 // @material-ui/icons
-import {  VerifiedUser,BugReport} from "@material-ui/icons";
 
-// core components
-import CustomDropdown from "components/CustomDropdown/CustomDropdown.jsx";
-import Button from "components/CustomButtons/Button.jsx";
+let VerifiedUser = CodeSplitComponent(import("@material-ui/icons/VerifiedUser"))
+let BugReport = CodeSplitComponent(import("@material-ui/icons/BugReport"))
 
+let Button = CodeSplitComponent(import("components/CustomButtons/Button.jsx"))
 import headerLinksStyle from "assets/jss/material-kit-react/components/headerLinksStyle.jsx";
 
 function HeaderLinks({...props}) {
@@ -44,6 +42,23 @@ function HeaderLinks({...props}) {
 
             </ListItem>
 
+            <ListItem className={classes.listItem}>
+                <Tooltip
+                    id="blog"
+                    title="Read our delightful Blog"
+                    placement={window.innerWidth > 959 ? "top" : "left"}
+                    classes={{tooltip: classes.tooltip}}
+                >
+                    <Button
+                        href="./Blog"
+
+                        color="transparent"
+                        className={classes.navLink}
+                    >
+
+                    </Button>
+                </Tooltip>
+            </ListItem>
             <ListItem className={classes.listItem}>
                 <Tooltip
                     id="instagram-twitter"

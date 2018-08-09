@@ -3,25 +3,46 @@ import React from "react";
 import classNames from "classnames";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
+import {Redirect} from 'react-router'
 
-// @material-ui/icons
+import {
 
-// core components
-import Header from "components/Header/Header.jsx";
-import Footer from "components/Footer/Footer.jsx";
-import GridContainer from "components/Grid/GridContainer.jsx";
-import GridItem from "components/Grid/GridItem.jsx";
-import Button from "components/CustomButtons/Button.jsx";
-import HeaderLinks from "components/Header/HeaderLinks.jsx";
-import Parallax from "components/Parallax/Parallax.jsx";
+    AddChangeEventWithObject,
+
+    CodeSplitComponent
+} from "../../BooBoo/BooBoo";
+
 
 import landingPageStyle from "assets/jss/material-kit-react/views/landingPage.jsx";
 
 const dashboardRoutes = [];
-
+let Header = CodeSplitComponent( import("components/Header/Header.jsx"));
+let Footer = CodeSplitComponent( import( "components/Footer/Footer.jsx"));
+let GridContainer=  CodeSplitComponent( import( "components/Grid/GridContainer.jsx"));
+let GridItem = CodeSplitComponent( import( "components/Grid/GridItem.jsx"));
+let HeaderLinks = CodeSplitComponent( import( "components/Header/HeaderLinks.jsx"));
+let Parallax = CodeSplitComponent( import( "components/Parallax/Parallax.jsx"));
+let SectionLogin = CodeSplitComponent( import( "./Sections/SectionLogin"));
+let SectionCarousel = CodeSplitComponent( import( "./Sections/SectionCarousel"));
 class LandingPage extends React.Component {
+    constructor(props)
+    {
+        super(props);
+        this.state = {
+            Image2Seen:false
+        }
+        AddChangeEventWithObject({Image2Seen: (Data)=>
+            {
+                debugger;
+                this.setState(Data);
+            }
+        });
+    }
     render() {
         const {classes, ...rest} = this.props;
+        if(this.state.Image2Seen){
+            return ( <Redirect push to="/2" />)
+        }
         return (
             <div>
                 <Header
@@ -36,29 +57,30 @@ class LandingPage extends React.Component {
                     }}
                     {...rest}
                 />
-                <Parallax filter image={require("assets/img/matrix.gif")}>
+                <Parallax filter image={require("assets/img/bg8bit.gif")}>
                     <div className={classes.container}>
-                                             <GridContainer>
+                        <GridContainer>
                             <GridItem xs={12} sm={12} md={6}>
-                                <h1 className={classes.title}>Split, Merge, and Fix Pcf files.</h1>
+                                <h1 className={classes.title}>Some title.</h1>
                                 <h4>
-                                    Quickly process all the annoying errors in your pcf file with this multifile tool.
+                                    A header about the tests
                                 </h4>
-                                <br/>
-                                <Button
-                                    color="danger"
-                                    size="lg"
-                                    href="/tutorial"
 
-                                >
-                                    <i className="fas fa-play"/>Let's Get Started
-                                </Button>
+
                             </GridItem>
                         </GridContainer>
                     </div>
                 </Parallax>
                 <div className={classNames(classes.main, classes.mainRaised)}>
                     <div className={classes.container}>
+
+                        <GridContainer>
+                            <GridItem xs={12} sm={12} md={12}>
+                               <SectionCarousel />
+                                <SectionLogin />
+                            </GridItem>
+                        </GridContainer>
+
 
                     </div>
                 </div>
